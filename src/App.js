@@ -1,27 +1,32 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages
 import Home from "./Pages/Home";
+
+// Components
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
-// Step: Create context
-export const MyContext = createContext();
+export const MyContext = createContext(); // ✅ Export this named
 
-function App() {
-  const [someState, setSomeState] = useState("initial");
+const App = () => {
+  const [state, setState] = useState({
+    cart: [],
+    user: null,
+  });
 
   return (
-    <MyContext.Provider value={{ someState, setSomeState }}>
-      <BrowserRouter>
+    <MyContext.Provider value={{ state, setState }}>
+      <Router>
         <Header />
         <Routes>
-          <Route path="/" exact={true} element={<Home />} />
+          <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
+        <Footer />
+      </Router>
     </MyContext.Provider>
   );
-}
+};
 
 export default App;
- 
