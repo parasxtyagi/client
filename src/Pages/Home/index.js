@@ -60,7 +60,7 @@ const Home = () => {
                         >
 
                            <SwiperSlide>
-                              <ProductItem />
+                              <ProductItem /> 
                            </SwiperSlide>
 
                            <SwiperSlide>

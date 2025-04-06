@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { MyContext } from "../../App"; // ✅ Import MyContext
+import { MyContext } from "../../App";
 import Button from "@mui/material/Button";
 import { FaAngleDown } from "react-icons/fa6";
 import Dialog from "@mui/material/Dialog";
@@ -15,27 +15,27 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const CountryDropdown = () => {
     const [isOpenModal, setisOpenModal] = useState(false);
     const [selectedTab, setselectedTab] = useState(null);
-    const [searchQuery, setSearchQuery] = useState(""); // ✅ Search Query State
-    const context = useContext(MyContext);
+    const [searchQuery, setSearchQuery] = useState("");
 
+    const context = useContext(MyContext);
     const [filteredCountries, setFilteredCountries] = useState(context.countryList || []);
 
     useEffect(() => {
         setFilteredCountries(context.countryList);
-    }, [context.countryList]); // ✅ Runs only when country list changes
+    }, [context.countryList]);
 
     const selectCountry = (index, country) => {
         setselectedTab(index);
         setisOpenModal(false);
-        context.setselectedCountry(country);
+        context.setSelectedCountry(country); // ✅ CORRECTED here
     };
 
     const handleFilter = (e) => {
         const keyword = e.target.value.toLowerCase();
-        setSearchQuery(keyword); // ✅ Update search query state
+        setSearchQuery(keyword);
 
         if (keyword === "") {
-            setFilteredCountries(context.countryList); // ✅ Reset if empty
+            setFilteredCountries(context.countryList);
         } else {
             const filteredList = context.countryList.filter((item) =>
                 item.country.toLowerCase().includes(keyword)

@@ -1,12 +1,29 @@
-import { useState } from "react";
-import { Link } from "react-router-dom"; // ✅ Import Link properly
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { IoIosMenu } from "react-icons/io";
-import { FaAngleDown } from "react-icons/fa6";
-import { FaAngleRight } from "react-icons/fa6";
+import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 
 const Navigation = () => {
     const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
+    const sidebarRef = useRef(null); // ✅ Sidebar reference
+
+    // ✅ Detect outside click
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                sidebarRef.current &&
+                !sidebarRef.current.contains(event.target)
+            ) {
+                setIsOpenSidebarVal(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     return (
         <nav>
@@ -14,10 +31,12 @@ const Navigation = () => {
                 <div className="row">
                     {/* Sidebar Navigation */}
                     <div className="col-sm-2 navPart1">
-                        <div className="catWrapper">
+                        <div className="catWrapper" ref={sidebarRef}>
                             <Button
                                 className="allCatTab align-items-center"
-                                onClick={() => setIsOpenSidebarVal(!isOpenSidebarVal)}
+                                onClick={() =>
+                                    setIsOpenSidebarVal(!isOpenSidebarVal)
+                                }
                             >
                                 <span className="icon1 mr-2">
                                     <IoIosMenu />
@@ -28,42 +47,76 @@ const Navigation = () => {
                                 </span>
                             </Button>
 
-                            <div className={`sidebarNav ${isOpenSidebarVal === true ? 'open' : ''}`}>
-
-
+                            <div
+                                className={`sidebarNav ${
+                                    isOpenSidebarVal ? "open" : ""
+                                }`}
+                            >
                                 <ul>
-                                    <li><Link to="/men"><Button>Men <FaAngleRight className="ml-auto"/></Button></Link>
+                                    <li>
+                                        <Link to="/men">
+                                            <Button>
+                                                Men
+                                                <FaAngleRight className="ml-auto" />
+                                            </Button>
+                                        </Link>
                                         <div className="submenu">
-                                            <Link to="/clothing"><Button>Clothing</Button></Link>
-                                            <Link to="/footwear"><Button>Footwear</Button></Link>
-                                            <Link to="/watches"><Button>Watches</Button></Link>
-                                        </div></li>
-                                    <li><Link to="/women"><Button>Women <FaAngleRight className="ml-auto"/></Button></Link>
-                                    <div className="submenu">
-                                            <Link to="/clothing"><Button>Clothing</Button></Link>
-                                            <Link to="/footwear"><Button>Footwear</Button></Link>
-                                            <Link to="/watches"><Button>Watches</Button></Link>
+                                            <Link to="/clothing">
+                                                <Button>Clothing</Button>
+                                            </Link>
+                                            <Link to="/footwear">
+                                                <Button>Footwear</Button>
+                                            </Link>
+                                            <Link to="/watches">
+                                                <Button>Watches</Button>
+                                            </Link>
                                         </div>
                                     </li>
-                                    <li><Link to="/beauty"><Button>Beauty</Button></Link>
-                                    
+                                    <li>
+                                        <Link to="/women">
+                                            <Button>
+                                                Women
+                                                <FaAngleRight className="ml-auto" />
+                                            </Button>
+                                        </Link>
+                                        <div className="submenu">
+                                            <Link to="/clothing">
+                                                <Button>Clothing</Button>
+                                            </Link>
+                                            <Link to="/footwear">
+                                                <Button>Footwear</Button>
+                                            </Link>
+                                            <Link to="/watches">
+                                                <Button>Watches</Button>
+                                            </Link>
+                                        </div>
                                     </li>
-                                    <li><Link to="/watches"><Button>Watches</Button></Link>
-                                    
+                                    <li>
+                                        <Link to="/beauty">
+                                            <Button>Beauty</Button>
+                                        </Link>
                                     </li>
-                                    <li><Link to="/kids"><Button>Kids</Button></Link>
-                                    
+                                    <li>
+                                        <Link to="/watches">
+                                            <Button>Watches</Button>
+                                        </Link>
                                     </li>
-                                    <li><Link to="/gifts"><Button>Gifts</Button></Link>
-                                    
+                                    <li>
+                                        <Link to="/kids">
+                                            <Button>Kids</Button>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/gifts">
+                                            <Button>Gifts</Button>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
-
-
                         </div>
                     </div>
 
+                
                     {/* Main Navigation */}
                     <div className="col-sm-10 navPart2 d-flex align-items-center">
                         <ul className="list list-inline ml-auto">
@@ -135,4 +188,5 @@ const Navigation = () => {
     );
 };
 
+                    
 export default Navigation;
