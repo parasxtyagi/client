@@ -36,6 +36,16 @@ const HomeBanner = () => {
                             <img src={slide2} alt="Banner 2" className="w-100" />
                         </div>
                     </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="item">
+                            <img src={slide1} alt="Banner 1" className="w-100" />
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="item">
+                            <img src={slide2} alt="Banner 2" className="w-100" />
+                        </div>
+                    </SwiperSlide>
                  
                 </Swiper>
             </div>

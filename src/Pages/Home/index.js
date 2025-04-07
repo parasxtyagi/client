@@ -89,7 +89,7 @@ const Home = () => {
 
                         </Swiper>
 
-                     </div>
+                     </div> 
 
 
 
