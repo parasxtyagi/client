@@ -7,6 +7,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
+
+
 const Sidebar = () => {
     const [value, setValue] = useState([100, 60000]);
     const [value2, setValue2] = useState(8);
@@ -14,6 +16,7 @@ const Sidebar = () => {
     return (
         <>
             <div className="sidebar">
+                
                 <div className="filterBox">
                     <h6>PRODUCT CATEGORIES</h6>
 
@@ -135,6 +138,7 @@ const Sidebar = () => {
                 <Link to="#"><img src="https://klbtheme.com/bacola/wp-content/uploads/2021/05/sidebar-banner.gif" className='w-100'/></Link>
 
             </div>
+            
         </>
     )
 }

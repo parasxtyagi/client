@@ -53,7 +53,7 @@ const Home = () => {
                      <div className="product_row w-100 mt-4">
                         <Swiper
                            slidesPerView={4}
-                           spaceBetween={0}
+                           spaceBetween={10}
                            navigation
                            modules={[Navigation]}
                            className="mySwiper"
