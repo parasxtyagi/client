@@ -10,7 +10,7 @@
 
 body {
   font-family: "Lato", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: rgba(0, 0, 0, 0.8);
   overflow-x: hidden;
 }
@@ -32,44 +32,66 @@ body {
 
 }
 
-.badge{
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+.badge {
   display: inline-block;
   padding: 7px 10px;
+  border-radius: 20px;
 }
 
-.badge.bg-success{
-background: #e5f8ed !important;
-color: #16b858 !important;
+.badge .success {
+  color: #00b853;
+  background-color: #e5f8ed;
 }
 
-.button{
+.badge.bg-success {
+  background: #e5f8ed !important;
+  color: #16b858 !important;
+}
+
+button {
   text-transform: capitalize !important;
 }
 
-.btn-blue{
+.btn-blue {
   background: #233a95 !important;
   color: #fff !important;
   text-transform: capitalize !important;
 }
 
-.btn-big{
-  font-size: 15px !important;
-  padding: 7px 30px !important;
-  min-width:auto !important;
+.btn-blue:hover {
+  background: #041f80 !important;
+  color: #ffffff !important;
 }
 
-.btn-round{
+.btn-big {
+  font-size: 15px !important;
+  padding: 7px 30px !important;
+  min-width: auto !important;
+}
+
+.btn-round {
   border-radius: 30px !important;
 }
 
-.btn-sml{
+.btn-circle {
+  border-radius: 50% !important;
+  min-width: auto;
+}
+
+
+.btn-sml {
   font-size: 12px !important;
   color: #000 !important;
   text-transform: capitalize !important;
 }
 
-.btn-sml svg{
-font-size: 20px;
+.btn-sml svg {
+  font-size: 20px;
 }
 
 .cursor {
@@ -83,6 +105,7 @@ font-size: 20px;
 .text-sml {
   font-size: 14px;
 }
+
 
 ::-webkit-scrollbar {
   width: 8px !important;
@@ -593,12 +616,20 @@ nav .navPart2 ul li .submenu a button:hover {
 .productItem {
   width: 100%;
   height: auto;
+  color: #000;
+  background: rgb(241, 241, 241);
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
   border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   cursor: pointer;
+  display: block;
   position: relative;
-
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.1);
+  border-image: initial;
+  overflow: hidden;
+  transition: 0.2s;
 }
 
 .productItem:hover {
@@ -635,7 +666,7 @@ nav .navPart2 ul li .submenu a button:hover {
 }
 
 .info .oldPrice.lg {
-font-size: 20px;
+  font-size: 20px;
 }
 
 .info .netPrice {
@@ -644,39 +675,53 @@ font-size: 20px;
 }
 
 .info .netPrice.lg {
-font-size: 20px;
+  font-size: 20px;
 }
 
 .productItem .actions {
-  position: absolute;
-  top: 20px;
-  right: -100%;
-  opacity: 0;
-  z-index: 1000;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  width: 50px;
+  z-index: 1000;
   gap: 10px;
-  transition: all 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
+
 
 .productItem .actions button {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
-  min-width: 40px !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important;
   height: 40px !important;
+  min-width: 40px !important;
   width: 40px !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background: rgb(255, 255, 255) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  border-image: initial !important;
   border-radius: 50% !important;
-  background: #fff !important;
-  box-shadow: 0 1px 3px rgba(0 0 0 / 24%) !important;
-  transition: all 0.0s !important;
+  transition: all !important;
 }
 
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
 
 .productItem .imgWrapper {
-  overflow: hidden;
+  height: 230px;
   position: relative;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 7px 7px 0px 0px;
+  overflow: hidden;
 }
 
 .productItem .imgWrapper:hover .actions {
@@ -686,11 +731,12 @@ font-size: 20px;
 
 .productItem .imgWrapper img {
   transition: all 0.3s ease-in-out;
+  height: auto;
 }
 
 .productItem .imgWrapper:hover img {
   transform: scale(1.1);
-  
+
 }
 
 .productItem .actions button svg {
@@ -713,7 +759,7 @@ font-size: 20px;
 
 .product_row .productItem {
   border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
-  
+
 }
 
 .product_row .swiper-slide:last-child .productItem {
@@ -730,7 +776,11 @@ font-size: 20px;
 
 .homeCat {
   padding: 35px 0px;
+}
 
+.homeCat .item:hover {
+  box-shadow: 0 1px 3px rgba(0 0 0 / 44%) !important;
+  transform: scale(1.01);
 }
 
 .homeCat .swiper .item {
@@ -962,11 +1012,11 @@ footer .copyright ul li a:hover svg {
   border-radius: 15px;
 }
 
-.productZoom .badge{
-position: absolute;
-top: 20px;
-left: 20px;
-z-index: 100;
+.productZoom .badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
 }
 
 
@@ -978,28 +1028,28 @@ z-index: 100;
   padding-top: 30px;
 }
 
-.zoomSlider *{
-outline: none !important;
+.zoomSlider * {
+  outline: none !important;
 }
 
-.zoomSlider .item{
+.zoomSlider .item {
   border: 2px solid transparent !important;
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
 }
 
-.zoomSlider .item_active{
-border: 2px solid rgba(0, 0, 0, 0.2) !important;
+.zoomSlider .item_active {
+  border: 2px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-.zoomSlider .swiper-button-prev{
+.zoomSlider .swiper-button-prev {
   width: 30px !important;
   height: 30px !important;
   top: 60% !important;
 }
 
-.zoomSlider .swiper-button-prev{
+.zoomSlider .swiper-button-prev {
   width: 30px !important;
   height: 30px !important;
   top: 60% !important;
@@ -1024,23 +1074,23 @@ border: 2px solid rgba(0, 0, 0, 0.2) !important;
 
 .zoomSlider .slick-arrow {
   top: 55% !important;
-zoom: 80% !important;
+  zoom: 80% !important;
 }
 
 .zoomSlider .slick-arrow.slick-next {
-right: -2% !important;
+  right: -2% !important;
 }
 
 .zoomSlider .slick-arrow.slick-prev {
   left: -5% !important;
 }
 
-.quantityDrop{
+.quantityDrop {
   width: 150px;
-gap: 10px;
+  gap: 10px;
 }
 
-.quantityDrop button{
+.quantityDrop button {
   min-width: 40px !important;
   width: 40px !important;
   height: 40px !important;
@@ -1050,30 +1100,35 @@ gap: 10px;
   color: #000;
 }
 
-.quantityDrop button svg{
-color: #000 !important;
+.quantityDrop button:hover {
+  background: #ccc !important;
+  color: #000 !important;
 }
 
-.quantityDrop input{
-width: 30px;
-border: 0px;
-background: transparent;
-outline: none !important;
-text-align: center;
+.quantityDrop button svg {
+  color: #000 !important;
 }
 
-.productModal .actions button{
+.quantityDrop input {
+  width: 30px;
+  border: 0px;
+  background: transparent;
+  outline: none !important;
+  text-align: center;
+}
+
+.productModal .actions button {
   color: #000 !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
   font-size: 10px !important;
 }
 
-.productModal .actions button svg{
-font-size: 15px !important;
+.productModal .actions button svg {
+  font-size: 15px !important;
 }
 
-.productModal .actions button:hover{
-background: #f1f1f1;
+.productModal .actions button:hover {
+  background: #f1f1f1;
 }
 
 
@@ -1083,15 +1138,15 @@ background: #f1f1f1;
 
 
 
-.product_Listing_Page{
+.product_Listing_Page {
   padding: 45px 0px;
 }
 
-.product_Listing_Page .productListing{
+.product_Listing_Page .productListing {
   gap: 20px;
 }
 
-.product_Listing_Page .productListing .sidebar{
+.product_Listing_Page .productListing .sidebar {
   width: 20%;
   flex: 0 0 20%;
 }
@@ -1101,39 +1156,39 @@ position: sticky;
 top: 20px;
 } */
 
-.product_Listing_Page .productListing .sidebar .filterBox{
+.product_Listing_Page .productListing .sidebar .filterBox {
   margin-bottom: 35px;
 }
 
-.product_Listing_Page .productListing .sidebar .filterBox h6{
-font-weight: 700;
-font-size: 14px;
-margin-bottom: 15px;
+.product_Listing_Page .productListing .sidebar .filterBox h6 {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
-.product_Listing_Page .productListing .sidebar .scroll{
-padding-left: 10px;
-max-height: 180px;
-overflow-y: scroll;
-overflow-x: hidden;
+.product_Listing_Page .productListing .sidebar .scroll {
+  padding-left: 10px;
+  max-height: 180px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-.product_Listing_Page .productListing .sidebar .scroll::-webkit-scrollbar{
-width: 5px !important;
-height: 5px !important;
+.product_Listing_Page .productListing .sidebar .scroll::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
 }
 
-.product_Listing_Page .productListing .sidebar .scroll ul{
+.product_Listing_Page .productListing .sidebar .scroll ul {
   margin-bottom: 0px;
 }
 
-.product_Listing_Page .productListing .sidebar .scroll ul li{
-list-style: none;
-margin-bottom: 0px;
-width: 100%;
+.product_Listing_Page .productListing .sidebar .scroll ul li {
+  list-style: none;
+  margin-bottom: 0px;
+  width: 100%;
 }
 
-.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root{
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root {
   padding: 2px !important;
 }
 
@@ -1146,32 +1201,33 @@ width: 100%;
   height: 20px !important;
 }
 
-.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, 
-.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-intermediate{
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-intermediate {
   color: #8b3797 !important;
 
 }
-   
 
 
 
 
-.range-slider{
+
+.range-slider {
   height: 5px !important;
 }
 
-.range-slider .range-slider__thumb,.range-slider .range-slider__range {
+.range-slider .range-slider__thumb,
+.range-slider .range-slider__range {
   background: #8b3797 !important;
 }
 
-.range-slider .range-slider__thumb{
+.range-slider .range-slider__thumb {
   width: 15px !important;
   height: 15px !important;
 }
 
 
 
-.product_Listing_Page .productListing .content_right{
+.product_Listing_Page .productListing .content_right {
   width: 78%;
   flex: 0 0 78%;
   padding-left: 50px;
@@ -1199,30 +1255,28 @@ width: 100%;
 }
 
 .product_Listing_Page .productListing .content_right .showBy .btnWrapper button.act svg {
-opacity: 1 !important;
+  opacity: 1 !important;
 }
 
 .product_Listing_Page .productListing .content_right .showBy .btnWrapper button:hover svg {
   opacity: 1;
 }
 
-.showByFilter button{
+.showByFilter button {
   min-width: auto !important;
   color: #000;
 }
 
-.showByFilter button svg{
-color: #000;
-opacity: 0.6;
-margin-left: 5px;
+.showByFilter button svg {
+  color: #000;
+  opacity: 0.6;
+  margin-left: 5px;
 }
 
-.showByFilter button.act{
+.showByFilter button.act {}
 
-}
-
-.showPerPageDropdown .MuiPaper-root{
-  width: 80px  !important;
+.showPerPageDropdown .MuiPaper-root {
+  width: 80px !important;
 }
 
 
@@ -1250,6 +1304,169 @@ margin-left: 5px;
   align-items: center;
 }
 
-.productListing .productItem.one .imgWrapper{
+.productListing .productItem.one .imgWrapper {
   width: 25%;
+}
+
+
+.section {
+  padding: 45px 0px;
+}
+
+.productDeetails .hd {
+  font-size: 26px;
+}
+
+.productDeetails .oldPrice {
+  font-size: 20px;
+}
+
+.productDeetails .netPrice {
+  font-size: 22px;
+}
+
+.productSize {
+  width: 100%;
+  height: auto;
+  padding: 25px 0px;
+}
+
+.productSize ul li {
+  margin-right: 10px !important;
+}
+
+.productSize ul li:hover {
+  background: #ececec;
+}
+
+.productSize ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px !important;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 14px !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.productSize ul li a.active {
+  background: #233a95 !important;
+  color: #fff !important;
+}
+
+
+.productDetails .btn-circle {
+  min-width: 40px !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #edeef5 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: #000 !important;
+  padding: 5px !important;
+}
+
+.productDetails .btn-circle:hover {
+  background: #ccc !important;
+}
+
+.productDetails .btn-circle svg {
+  color: #000 !important;
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+
+.detailsPageTabs {
+  border-radius: 25px !important;
+  background: #fafafa;
+}
+
+.customTabs ul li {
+  margin-right: 10px !important;
+}
+
+.customTabs ul li button {
+  padding: 6px 25px !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  font-size: 14px !important;
+  text-transform: capitalize !important;
+  border-radius: 30px !important;
+  color: #000 !important;
+
+}
+
+.customTabs ul li button.active {
+  color: #ccc !important;
+  background: #233a95 !important;
+}
+
+.reviewsCard {
+  margin-bottom: 25px !important;
+}
+
+.reviewsCard .image {
+  width: 100px;
+}
+
+.reviewsCard .rounded-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+}
+
+.reviewsCard .rounded-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviewsCard .info {
+  width: 85%;
+}
+
+.detailsPageTabs .table th,
+.detailsPageTabs .table td {
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.detailsPageTabs .table td p {
+  margin-bottom: 0px;
+}
+
+.reviewForm .form-group {
+  margin-bottom: 25px;
+}
+
+.reviewForm .form-group .form-control {
+  height: 80px;
+  font-size: 20px;
+  border-radius: 7px !important;
+  padding-left: 20px;
+}
+
+.reviewForm .form-group textarea.form-control {
+  height: 200px;
+  padding-top: 25px;
+}
+
+.progressBarBox {
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  font-size: 16px;
+}
+
+.reviewCard .info p {
+  font-size: 13px;
+  line-height: 22px;
 }

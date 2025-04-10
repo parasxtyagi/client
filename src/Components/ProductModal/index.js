@@ -2,41 +2,25 @@ import Dialog from "@mui/material/Dialog";
 import Button from "@mui/material/Button";
 import { MdClose } from "react-icons/md";
 import Rating from "@mui/material/Rating";
-import InnerImageZoom from "react-inner-image-zoom";
-import "react-inner-image-zoom/lib/styles.min.css";
-import { useContext, useRef, useState } from "react";
+
+
+import { useContext} from "react";
 import QuantityBox from "../QuantityBox";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlineCompareArrows } from "react-icons/md";
 import { MyContext } from "../../App";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import ProductZoom from "../ProductZoom";
+
+
+
 
 const ProductModal = (props) => {
-    const [slideIndex, setSlideIndex] = useState(0);
-    const zoomSliderBig = useRef();
-    const zoomSlider = useRef();
+   
     const context = useContext(MyContext);
 
-    const goto = (index) => {
-        setSlideIndex(index);
-        zoomSlider.current.swiper.slideTo(index);
-        zoomSliderBig.current.swiper.slideTo(index);
-    };
+   
 
-    const images = [
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg",
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg",
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg"
-    ];
-
-    const thumbnails = [
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg",
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg",
-        "https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg"
-    ];
+ 
 
     return (
         <Dialog
@@ -66,52 +50,7 @@ const ProductModal = (props) => {
 
                 <div className="row mt-2 productDetailsModal">
                     <div className="col-md-5">
-                        <div className="productZoom position-relative">
-                            <div className="badge badge-primary">23%</div>
-                            <Swiper
-                                slidesPerView={1}
-                                spaceBetween={0}
-                                navigation={false}
-                                modules={[Navigation]}
-                                className="zoomSliderBig"
-                                ref={zoomSliderBig}
-                            >
-                                {images.map((imgUrl, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div className="item">
-                                            <InnerImageZoom
-                                                zoomType="hover"
-                                                zoomScale={1}
-                                                src={imgUrl}
-                                                alt={`Zoom Product ${index + 1}`}
-                                            />
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
-
-                        <Swiper
-                            slidesPerView={4}
-                            spaceBetween={0}
-                            navigation={true}
-                            modules={[Navigation]}
-                            className="zoomSlider"
-                            ref={zoomSlider}
-                        >
-                            {thumbnails.map((thumbUrl, index) => (
-                                <SwiperSlide key={index}>
-                                    <div className={`item ${slideIndex === index ? 'item_active' : ''}`}>
-                                        <img
-                                            src={thumbUrl}
-                                            className="w-100"
-                                            onClick={() => goto(index)}
-                                            alt={`Product Thumbnail ${index + 1}`}
-                                        />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                     <ProductZoom/>
                     </div>
 
                     <div className="col-md-7">
