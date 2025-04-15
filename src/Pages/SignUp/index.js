@@ -11,7 +11,13 @@ const SignUp = () => {
 
     useEffect(() => {
         context.setisHeaderFooterShow(false);
-    }, []);
+    }, [context]);
+
+    const handleForgotPassword = () => {
+        alert("Forgot password functionality coming soon!");
+    };
+
+
 
     return (
         <section className="section signInPage signUpPage">
@@ -93,14 +99,16 @@ const SignUp = () => {
                             />
                         </div>
 
-                        <a className="border-effect cursor txt"> Forgot Password?</a>
+                        <button type="button" className="border-effect cursor txt" onClick={handleForgotPassword}>
+                            Forgot Password?
+                        </button>
 
                         <div className="d-flex align-items-center mt-3 mb-3 d-flex ">
                             <div className="row w-100">
                                 <div className="col-md-6">
                                     <Button className="btn-blue btn-lg btn-big col">Sign Up</Button>
                                 </div>
-                               
+
                                 <div className="col-md-6 pr-0">
                                     <Link to="/" >
                                         <Button className="btn-lg btn-big col" variant="outlined" onClick={() => context.setisHeaderFooterShow(true)}>
@@ -117,7 +125,10 @@ const SignUp = () => {
 
                         <h6 className="mt-4 text-center font-weight-bold">Or continue with social account?</h6>
 
-                        <Button className="loginWithGoogle" variant="outlined"><img src={GoogleImg} />Sign In With Google</Button>
+                        <Button className="loginWithGoogle" variant="outlined">
+                            <img src={GoogleImg} alt="Google logo" style={{ marginRight: 8 }} />
+                            Sign In With Google
+                        </Button>
 
 
                     </form>

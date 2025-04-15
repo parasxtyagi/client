@@ -3,8 +3,6 @@ import { MyContext } from "../../App";
 import Logo from "../../assets/images/logo.ico.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { Link } from "react-router-dom";
 import GoogleImg from "../../assets/images/google.png";
 
@@ -13,7 +11,8 @@ const SignIn = () => {
 
     useEffect(() => {
         context.setisHeaderFooterShow(false);
-    }, []);
+    }, [context]);
+
 
     return (
         <section className="section signInPage">
@@ -66,7 +65,7 @@ const SignIn = () => {
                             />
                         </div>
 
-                        <a className="border-effect cursor txt"> Forgot Password?</a>
+                        <Link to="/forgot-password" className="border-effect cursor txt">Forgot Password?</Link>
 
                         <div className="row mt-3 mb-3 text-center">
                             {/* Sign In Button */}
@@ -96,8 +95,10 @@ const SignIn = () => {
 
                         <h6 className="mt-4 text-center font-weight-bold">Or continue with social account?</h6>
 
-                        <Button className="loginWithGoogle" variant="outlined"><img src={GoogleImg} />Sign In With Google</Button>
-
+                        <Button className="loginWithGoogle" variant="outlined">
+                            <img src={GoogleImg} alt="Google Logo" />
+                            Sign In With Google
+                        </Button>
 
                     </form>
 

@@ -68,7 +68,9 @@ const ProductDetails = () => {
               <ul className="list list-inline mb-0 pl-4">
                 {["50g", "100g", "150g", "200g", "250g"].map((size, i) => (
                   <li key={i} className="list-inline-item">
-                    <a className={`tag ${activeSize === i ? 'active' : ''}`} onClick={() => isActive(i)}>{size}</a>
+                    <a className={`tag ${activeSize === i ? 'active' : ''}`} onClick={() => isActive(i)} href="#size-selection">
+                      {size}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -76,18 +78,18 @@ const ProductDetails = () => {
 
             <div className="d-flex align-items-center mt-3">
               <QuantityBox />
-              <Button className="btn-blue btn-lg btn-big btn-round ml-5">
+              <Button aria-label="Add to cart" className="btn-blue btn-lg btn-big btn-round ml-5">
                 <BsCartFill /> &nbsp; Add to cart
               </Button>
 
               <Tooltip title="Add to my list" placement="top">
-                <Button className="btn-blue btn-lg btn-big btn-circle ml-4">
+                <Button aria-label="Add to wishlist" className="btn-blue btn-lg btn-big btn-circle ml-4">
                   <FaRegHeart />
                 </Button>
               </Tooltip>
 
               <Tooltip title="Compare" placement="top">
-                <Button className="btn-blue btn-lg btn-big btn-circle ml-2">
+                <Button aria-label="Compare product" className="btn-blue btn-lg btn-big btn-circle ml-2">
                   <MdOutlineCompareArrows />
                 </Button>
               </Tooltip>
@@ -178,7 +180,7 @@ const ProductDetails = () => {
                   <div className="reviewsCard d-flex">
                     <div className="image">
                       <div className="rounded-circle">
-                        <img src="https://i.pravatar.cc/100" alt="user" />
+                        <img src="https://i.pravatar.cc/100" alt="User profile" />
                       </div>
                     </div>
                     <div className="info pl-4">
@@ -191,7 +193,7 @@ const ProductDetails = () => {
                   <div className="reviewsCard d-flex">
                     <div className="image">
                       <div className="rounded-circle">
-                        <img src="https://i.pravatar.cc/101" alt="user" />
+                        <img src="https://i.pravatar.cc/101" alt="User profile" />
                       </div>
                     </div>
                     <div className="info pl-4">
@@ -204,17 +206,12 @@ const ProductDetails = () => {
               </div>
             </div>
           )}
-
         </div>
 
         <br />
-
         <RelatedProducts title="RELATED PRODUCTS" />
         <br />
         <RelatedProducts title="RECENTLY VIEWED PRODUCTS" />
-
-
-
       </div>
     </section>
   );
