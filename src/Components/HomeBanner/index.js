@@ -46,7 +46,7 @@ const HomeBanner = () => {
                             <img src={slide2} alt="Banner 2" className="w-100" />
                         </div>
                     </SwiperSlide>
-                 
+
                 </Swiper>
             </div>
         </div>

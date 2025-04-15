@@ -7,7 +7,7 @@ import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 const Navigation = () => {
     const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
     const sidebarRef = useRef(null); // ✅ Sidebar reference
-    
+
 
     // ✅ Detect outside click
     useEffect(() => {
@@ -49,9 +49,8 @@ const Navigation = () => {
                             </Button>
 
                             <div
-                                className={`sidebarNav ${
-                                    isOpenSidebarVal ? "open" : ""
-                                }`}
+                                className={`sidebarNav ${isOpenSidebarVal ? "open" : ""
+                                    }`}
                             >
                                 <ul>
                                     <li>
@@ -117,7 +116,7 @@ const Navigation = () => {
                         </div>
                     </div>
 
-                
+
                     {/* Main Navigation */}
                     <div className="col-sm-10 navPart2 d-flex align-items-center">
                         <ul className="list list-inline ml-auto">
@@ -189,5 +188,5 @@ const Navigation = () => {
     );
 };
 
-                    
+
 export default Navigation;

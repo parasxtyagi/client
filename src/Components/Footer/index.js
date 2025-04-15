@@ -104,20 +104,20 @@ const Footer = () => {
 
                 </div>
 
-<div className="copyright mt-3 pt-3 pb-3 d-flex">
-    <p className="mb-0">Copyright 2025 ©. All rights reserved.</p>
-    <ul className="list list-inline ml-auto mb-0 socials">
-        <li className="list-inline-item">
-            <Link to="#"><FaFacebookF/></Link>
-        </li>
-        <li className="list-inline-item">
-            <Link to="#"><FaTwitter/></Link>
-        </li>
-        <li className="list-inline-item">
-            <Link to="#"><FaInstagram/></Link>
-        </li>
-    </ul>
-</div>
+                <div className="copyright mt-3 pt-3 pb-3 d-flex">
+                    <p className="mb-0">Copyright 2025 ©. All rights reserved.</p>
+                    <ul className="list list-inline ml-auto mb-0 socials">
+                        <li className="list-inline-item">
+                            <Link to="#"><FaFacebookF /></Link>
+                        </li>
+                        <li className="list-inline-item">
+                            <Link to="#"><FaTwitter /></Link>
+                        </li>
+                        <li className="list-inline-item">
+                            <Link to="#"><FaInstagram /></Link>
+                        </li>
+                    </ul>
+                </div>
 
 
             </div>

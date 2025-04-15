@@ -2,7 +2,7 @@ import Sidebar from "../../Components/Sidebar";
 import Button from "@mui/material/Button";
 import { IoIosMenu } from "react-icons/io";
 import { TbGridDots } from "react-icons/tb";
-import { HiViewGrid } from "react-icons/hi";
+
 import { TfiLayoutGrid4Alt } from "react-icons/tfi";
 import { FaAngleDown } from "react-icons/fa6";
 import Menu from "@mui/material/Menu";
@@ -38,7 +38,12 @@ const Listing = () => {
                         <Sidebar />
 
                         <div className="content_right">
-                            <img src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg" className="w-100" style={{ borderRadius: "8px" }} />
+                            <img
+                                src="https://klbtheme.com/bacola/wp-content/uploads/2021/08/bacola-banner-18.jpg"
+                                className="w-100"
+                                style={{ borderRadius: "8px" }}
+                                alt="Promotional Banner"
+                            />
 
                             <div className="showBy mt-3 mb-3 d-flex align-items-center">
                                 <div className="d-flex align-items-center btnWrapper">
