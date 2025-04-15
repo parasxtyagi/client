@@ -7,16 +7,16 @@ import ProductItem from "../../../Components/ProductItem";
 
 
 
-const RelatedProducts = () => {
+const RelatedProducts = (props) => {
 
     return (
         <>
             <div className="d-flex align-items-center mt-3">
                 <div className="info w-75">
-                    <h3 className="mb-0 hd">RELATED PRODUCTS</h3>
-                   
+                    <h3 className="mb-2 hd">{props.title}</h3>
+
                 </div>
-             
+
 
             </div>
 

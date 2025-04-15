@@ -7,6 +7,7 @@ import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 const Navigation = () => {
     const [isOpenSidebarVal, setIsOpenSidebarVal] = useState(false);
     const sidebarRef = useRef(null); // ✅ Sidebar reference
+    
 
     // ✅ Detect outside click
     useEffect(() => {

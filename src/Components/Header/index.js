@@ -1,16 +1,18 @@
-import { Link } from "react-router-dom"; // ✅ Import Link properly
-import Logo from "../../assets/images/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/images/logo.ico.png";
 import Button from '@mui/material/Button';
-import CountryDrop from "../CountryDropdown"; // ✅ Make sure this component exists
+import CountryDrop from "../CountryDropdown";
 import { FiUser } from "react-icons/fi";
 import { IoBagOutline } from "react-icons/io5";
 import SearchBox from "./SearchBox";
-import Navigation from "./Navigation"; // Path sahi check karlo
-import { useContext } from 'react'; // ✅ Fixed Incorrect Quote
+import Navigation from "./Navigation";
+import { useContext } from 'react';
 import { MyContext } from '../../App';
 
 const Header = () => {
     const context = useContext(MyContext);
+    const Navigate = useNavigate();
+
 
     return (
         <>
@@ -41,11 +43,24 @@ const Header = () => {
                                 <SearchBox />
 
                                 <div className="part3 d-flex align-items-center ml-auto">
-                                    <Button className="circle mr-3"><FiUser /></Button>
-                                    <div className="ml-auto cartTab d-flex align-items-center">
+
+                                        {context.isLogin !== true ? (
+                                            <Link to="/signIn">
+                                                <Button className="btn-blue btn-round mr-3">Sign In</Button>
+                                            </Link>
+                                        ) : (
+                                            <Button className='circle mr-3'>
+                                                <FiUser />
+                                            </Button>
+                                        )}
+                                        
+
+                                                <div className="ml-auto cartTab d-flex align-items-center">
                                         <span className="price">$3.29</span>
                                         <div className="position-relative ml-2">
-                                            <Button className="circle"><IoBagOutline /></Button>
+                                            <Button className="circle" onClick={() => Navigate('/cart')}>
+                                                <IoBagOutline />
+                                            </Button>
                                             <span className="count d-flex align-items-center justify-content-center">1</span>
                                         </div>
                                     </div>

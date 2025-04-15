@@ -209,7 +209,10 @@ const ProductDetails = () => {
 
         <br />
 
-        <RelatedProducts />
+        <RelatedProducts title="RELATED PRODUCTS" />
+        <br />
+        <RelatedProducts title="RECENTLY VIEWED PRODUCTS" />
+
 
 
       </div>
